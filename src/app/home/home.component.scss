@@ -1,0 +1,31 @@
+.jumbotron {
+  background-image: url(contaAbra-Mulher3.png);
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.jumbotron .titulo-destaque {
+  color: rgb(255, 174, 0);
+  margin-top: 10%;
+}
+
+.jumbotron .descricao {
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+}
+
+.container {
+  margin-left: 20px;
+}
+
+.jumbotron .container {
+  width:40%;
+}
+
+
