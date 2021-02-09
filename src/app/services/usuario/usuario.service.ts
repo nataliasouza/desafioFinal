@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Genero } from 'src/app/model/Genero.interface';
 import { Usuario } from 'src/app/model/Usuario.interface';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +12,16 @@ export class UsuarioService {
   constructor( private http: HttpClient ) { }
 
   API_URL = environment.API_URL;
+
+  getGeneros(){
+    let generos = this.http.get<Genero[]>(this.API_URL + '/genero');
+    return generos;
+  }
+
+  getGeneroById(id: string) {
+    let descricaoGenero = this.http.get<Genero>(this.API_URL + `/genero/${id}`);
+    return descricaoGenero;
+  }
 
   getUsuarios() {
     let usuarios = this.http.get<Usuario[]>(this.API_URL + '/usuario');
