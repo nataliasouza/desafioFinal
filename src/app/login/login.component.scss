@@ -48,6 +48,14 @@ body{
 .login-form .group .button{
 	text-transform:uppercase;
 }
+a {
+  width: 100%;
+  max-width: 380px;
+  padding: 10px;
+  border-bottom:2px solid transparent;
+  border-radius: 25px;
+}
+
 .login-html .tab{
 	font-size:22px;
 	margin-right:15px;
@@ -88,7 +96,7 @@ body{
 	text-security:circle;
 	-webkit-text-security:circle;
 }
-.login-form .group .label{
+.login-form .group .label {
 	color:#aaa;
 	font-size:12px;
 }
