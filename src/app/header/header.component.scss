@@ -6,26 +6,27 @@
 
 #navigation {
   background-color: #e46c0a;
-  font-family: Roboto;
+  font-family: Montserrat;
+  font-weight: 600;
 }
 
 header .logo {
   color:rgb(219, 219, 219);
   margin-left: 5px;
   font-family: Montserrat;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 25px;
   padding-right: 15px;
 }
 
 header nav a {
   text-decoration: none;
-  color: #3a3535;
+  color: #d6d6d6;
   margin-right: 10px;
 }
 
 header nav a:hover {
-  color: #fff;
+  color: rgb(97, 44, 13);
 }
 
 
