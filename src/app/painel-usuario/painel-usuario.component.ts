@@ -27,14 +27,25 @@ export class PainelUsuarioComponent implements OnInit {
     this.inicializaForm();
   }
 
+  // inicializaForm() {
+  //   this.usuarioForm = this.fb.group({
+  //     nome: ['', Validators.required],
+  //     generoId: ['', Validators.required],
+  //     foto: ['', Validators.required],
+  //     dataNascimento: ['', Validators.required],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     senha: ['', Validators.required],
+  //   })
+  // }
+
   inicializaForm() {
     this.usuarioForm = this.fb.group({
-      nome: ['', Validators.required],
-      generoId: ['', Validators.required],
-      foto: ['', Validators.required],
-      dataNascimento: ['', Validators.required],
+      name: ['', Validators.required],
+      genderId: ['', Validators.required],
+      photo: ['', Validators.required],
+      birthday: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', Validators.required],
+      password: ['', Validators.required],
     })
   }
 
@@ -63,7 +74,6 @@ export class PainelUsuarioComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.usuarioForm);
     if (this.usuarioForm.invalid) {
       this.validateAllFormFiels(this.usuarioForm);
       return;
@@ -72,7 +82,7 @@ export class PainelUsuarioComponent implements OnInit {
   }
 
 
-  cadastro() {
+  cadastro() {  console.log(this.usuarioForm.value);
     this.usuarioService.postUsuario(this.usuarioForm.value)
       .subscribe(
         response => this.onSuccessNovoCliente(),
