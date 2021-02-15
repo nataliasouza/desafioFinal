@@ -12,6 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PainelUsuarioComponent } from './painel-usuario/painel-usuario.component';
+import { ProfilePostComponent } from './profile-post/profile-post.component';
+import { EquipeComponent } from './equipe/equipe.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { PainelUsuarioComponent } from './painel-usuario/painel-usuario.componen
     HomeComponent,
     FooterComponent,
     LoginComponent,
-    PainelUsuarioComponent
+    PainelUsuarioComponent,
+    ProfilePostComponent,
+    EquipeComponent
   ],
   imports: [
     BrowserModule,
