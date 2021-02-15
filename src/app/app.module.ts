@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PainelUsuarioComponent } from './painel-usuario/painel-usuario.component';
 import { ProfilePostComponent } from './profile-post/profile-post.component';
+import { EquipeComponent } from './equipe/equipe.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProfilePostComponent } from './profile-post/profile-post.component';
     FooterComponent,
     LoginComponent,
     PainelUsuarioComponent,
-    ProfilePostComponent
+    ProfilePostComponent,
+    EquipeComponent
   ],
   imports: [
     BrowserModule,
