@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PainelUsuarioComponent } from './painel-usuario.component';
+import { PainelUsuarioComponent } from './cadastro.component';
 
 describe('PainelUsuarioComponent', () => {
   let component: PainelUsuarioComponent;
