@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Genero } from '../model/Genero.interface';
+import { GeneroService } from '../services/genero/genero.service';
+import { Genero } from '../services/model/Genero.interface';
 import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
-  selector: 'app-painel-usuario',
-  templateUrl: './painel-usuario.component.html',
-  styleUrls: ['./painel-usuario.component.scss']
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.scss']
 })
-export class PainelUsuarioComponent implements OnInit {
+export class CadastroComponent implements OnInit {
 
   generos: Genero[];
   usuarioForm: FormGroup;
@@ -18,6 +19,7 @@ export class PainelUsuarioComponent implements OnInit {
   constructor(
     private router: Router,
     private usuarioService: UsuarioService,
+    private generoService: GeneroService,
     private toastr: ToastrService,
     private fb: FormBuilder
   ) { }
@@ -26,17 +28,6 @@ export class PainelUsuarioComponent implements OnInit {
     this.carregarGeneros();
     this.inicializaForm();
   }
-
-  // inicializaForm() {
-  //   this.usuarioForm = this.fb.group({
-  //     nome: ['', Validators.required],
-  //     generoId: ['', Validators.required],
-  //     foto: ['', Validators.required],
-  //     dataNascimento: ['', Validators.required],
-  //     email: ['', [Validators.required, Validators.email]],
-  //     senha: ['', Validators.required],
-  //   })
-  // }
 
   inicializaForm() {
     this.usuarioForm = this.fb.group({
@@ -50,7 +41,7 @@ export class PainelUsuarioComponent implements OnInit {
   }
 
   carregarGeneros() {
-    this.usuarioService.getGeneros()
+    this.generoService.getGeneros()
       .subscribe(
         response => this.onSuccess(response),
         error => this.onError()
@@ -82,7 +73,7 @@ export class PainelUsuarioComponent implements OnInit {
   }
 
 
-  cadastro() {  console.log(this.usuarioForm.value);
+  cadastro() {  
     this.usuarioService.postUsuario(this.usuarioForm.value)
       .subscribe(
         response => this.onSuccessNovoCliente(),

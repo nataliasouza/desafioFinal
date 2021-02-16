@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { UsuarioService } from '../services/usuario/usuario.service';
-
+import { AuthenticationService } from '../services/providers/authentication/authentication.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,23 +10,38 @@ import { UsuarioService } from '../services/usuario/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private usuarioService: UsuarioService,
+  loginForm: FormGroup;
+
+  constructor(private authService: AuthenticationService,
               private router: Router,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.inicializaForm();
   }
 
-  // onSubmit(form:Ngform){
-  //   this.usuarioService.login(form.value)
-  //   .subscribe((res.any) => {
-  //     localStorage.setItem('accessToken', res.accessToken);
-  //     this.router.navigateByUrl('/home')
-  //   },
-  //   err => {
-  //     if(err.status == 400)
-  //     this.toastr.error('Usuario ou senha incorretos.')
-  //   }
-  // }
+  inicializaForm() {
+    this.loginForm = this.fb.group({
+      login: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
+
+  onSubmit() {
+    if (!this.loginForm.valid)
+    {
+      return;
+    }
+    console.log(this.loginForm.value.login, this.loginForm.value.password);
+    this.authService
+        .login(this.loginForm.value.login, this.loginForm.value.password)
+        .subscribe((user) =>  {
+          this.router.navigate(['/profile-post']);
+        }, (error) => 
+        {
+         this.toastr.error("Não foi possivel fazer o login, tente novamente!")
+        });
+  }
 
 }
