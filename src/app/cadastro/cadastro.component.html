@@ -35,8 +35,8 @@
             <label for="email" class="form-label">Digite seu E-mail:</label>
             <div class="form-group">
               <input type="email"
-              id="email" 
-              class="form-control cadastro" 
+              id="email"
+              class="form-control cadastro"
               aria-describedby="emailHelp"
               placeholder="E-mail"
               formControlName="email"
@@ -46,9 +46,9 @@
         <div class="form-group">
           <label for="password" class="form-label">Digite sua senha:</label>
           <div class="form-group">
-            <input type="password" 
+            <input type="password"
             id="password"
-            class="form-control cadastro" 
+            class="form-control cadastro"
             placeholder="Senha"
             formControlName="password"
             [class.is-invalid]="exibeErro('senha')">
@@ -58,7 +58,7 @@
         <div class="form-group">
           <label for="formFile"></label>
           <h5>Envie sua foto</h5>
-          <input type="file" class="form-control-file" id="formFile" (change)="onSelectedFile()" formControlName="photo">
+          <input type="file" class="form-control-file" id="formFile" (change)="onSelectedFile($event)" formControlName="photo">
         </div>
       </form>
         <div class="form-check">
@@ -67,7 +67,7 @@
         </div>
         <hr class="my-4">
         {{uploadForm.value}}
-        
+
       </form>
       <button type="submit" class="btn btn-primary float-right" (click)="onSubmit()">Salvar</button>
       <button type="button" href="#" class="btn btn-danger float-right">Cancelar</button>
