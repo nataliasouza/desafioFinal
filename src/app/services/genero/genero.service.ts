@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Genero } from '../model/Genero.interface';
 import { ProviderService } from '../providers/provider.service';
 
@@ -14,8 +15,9 @@ export class GeneroService extends ProviderService{
   }
 
   // GENEROS
-  getGeneros(){
-    let generos = this.http.get<Genero[]>(`${this.url}`);
+  getGeneros() {
+    let generos = this.http.get<any[]>(`${this.url}`);
+    console.log(generos);
     return generos;
   }
 

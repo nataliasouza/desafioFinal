@@ -34,6 +34,7 @@ export class UsuarioService extends ProviderService{
     return this.http.put<Usuario>(`${this.url}/${id}`, usuario);
   }
 
+ 
 
   // getContaByIdCLiente(idCliente: any) {
   //   return this.http.get<Conta[]>(this.API_URL + `/contas?idUsuario=${idCliente}`);

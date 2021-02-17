@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-profile-post',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePostComponent implements OnInit {
 
-  constructor() { }
+  constructor( private routerActivate: RouterLinkActive,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
