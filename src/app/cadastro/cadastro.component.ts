@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GeneroService } from '../services/genero/genero.service';
 import { Genero } from '../services/model/Genero.interface';
+import { UploadService } from '../services/upload/upload.service';
 import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
@@ -15,17 +16,22 @@ export class CadastroComponent implements OnInit {
 
   generos: Genero[];
   usuarioForm: FormGroup;
+  uploadForm: FormGroup;
+  public fileToUpload: File = null;
+  public files: Array<any> = new Array<any>();
 
   constructor(
     private router: Router,
     private usuarioService: UsuarioService,
     private generoService: GeneroService,
+    private uploadService: UploadService,
     private toastr: ToastrService,
     private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.carregarGeneros();
+    console.log();
     this.inicializaForm();
   }
 
@@ -38,6 +44,9 @@ export class CadastroComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     })
+
+    this.uploadForm = this.fb.group({
+      photo: ['', Validators.required]})
   }
 
   carregarGeneros() {
@@ -51,6 +60,18 @@ export class CadastroComponent implements OnInit {
   onSuccess(response: Genero[]) {
     this.generos = response;
   }
+
+  onSelectedFile(files: FileList){
+      const file = this.uploadService
+      .postPhoto(this.uploadForm.value)
+      .subscribe(
+        response => response.url,
+        error => this.onError(),
+      )
+      this.usuarioForm.get('photo').setValue(file);
+      console.log(file);
+    }
+  
 
   
   validateAllFormFiels(form: FormGroup) {

@@ -48,11 +48,10 @@ body{
 .login-form .group .button{
 	text-transform:uppercase;
 }
-a {
+a, button {
   width: 100%;
   max-width: 380px;
   padding: 10px;
-  border-bottom:2px solid transparent;
   border-radius: 25px;
 }
 
