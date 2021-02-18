@@ -31,7 +31,7 @@
               <option  *ngFor="let genero of generos" [ngValue]="genero.id"> {{genero.description}} </option>
             </select>
           </div>
-          <div class="form-group">
+          <div class= "col-sm-6 form-group">
             <label for="email" class="form-label">Digite seu E-mail:</label>
             <div class="form-group">
               <input type="email"
@@ -43,7 +43,7 @@
               [class.is-invalid]="exibeErro('email')">
           </div>
             </div>
-        <div class="form-group">
+        <div class="col-sm-6 form-group">
           <label for="password" class="form-label">Digite sua senha:</label>
           <div class="form-group">
             <input type="password"
@@ -73,5 +73,4 @@
       <button type="button" href="#" class="btn btn-danger float-right">Cancelar</button>
     </div>
   </div>
-
 </div>
