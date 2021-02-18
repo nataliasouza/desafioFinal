@@ -1,4 +1,4 @@
-.jumbotron {
+.main {
   background-image: url(devMulherHome.jpg);
   height: 600px;
   background-repeat: no-repeat;
@@ -9,12 +9,12 @@
   align-items: flex-start;
 }
 
-.jumbotron .titulo-destaque {
+.main .titulo-destaque {
   color: rgb(255, 174, 0);
   margin-top: 10%;
 }
 
-.jumbotron .descricao {
+.main .descricao {
   margin-top: 20px;
   margin-bottom: 30px;
   color: #fff;
@@ -24,8 +24,11 @@
   margin-left: 20px;
 }
 
-.jumbotron .container {
+.main .container {
   width:40%;
 }
 
-
+a{
+  padding: 10px 25px;
+	border-radius:25px;
+}
