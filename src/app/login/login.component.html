@@ -8,11 +8,11 @@
           <form [formGroup]="loginForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
           <div class="sign-in-htm">
             <div class="group">
-              <label for="user" class="label">Nome</label>
+              <label for="user" class="label">Email:</label>
               <input id="user" type="text" class="input" formControlName="login">
             </div>
             <div class="group">
-              <label for="pass" class="label">Senha</label>
+              <label for="pass" class="label">Senha:</label>
               <input id="pass" type="password" class="input" data-type="password" formControlName="password">
             </div>
             <div class="group">
@@ -23,7 +23,7 @@
               <button class="btn btn-primary btn-lg" type="submit">Entrar</button>
             </div>
             <div class="">
-              <p><a class="btn btn-outline-primary btn-lg" href="cadastro" role="button">Cadastrar</a></p>
+              <p><button class="btn btn-outline-primary btn-lg" href="cadastro" role="button">Cadastrar</button></p>
             </div>
             <div class="hr"></div>
             <div class="foot-lnk">
