@@ -52,7 +52,19 @@
             placeholder="Senha"
             formControlName="password"
             [class.is-invalid]="exibeErro('senha')">
+          </div>
         </div>
+        <!--Incluimos o confirme senha, verificar se a validação está correta-->
+        <div class="col-sm-6 form-group">
+          <label for="password" class="form-label">Confirme sua senha:</label>
+          <div class="form-group">
+            <input type="password"
+            id="password"
+            class="form-control cadastro"
+            placeholder="Senha"
+            formControlName="password"
+            [class.is-invalid]="exibeErro('senha')">
+          </div>
         </div>
     <form [formGroup]="uploadForm" class="needs-validation" novalidate >
         <div class="form-group">
@@ -66,8 +78,7 @@
           <label class="form-check-label" for="save-info">Guarde essas informações para a próxima vez.</label>
         </div>
         <hr class="my-4">
-        {{uploadForm.value}}
-
+       {{uploadForm.value}}
       </form>
       <button type="submit" class="btn btn-primary float-right" (click)="onSubmit()">Salvar</button>
       <button type="button" href="#" class="btn btn-danger float-right">Cancelar</button>
