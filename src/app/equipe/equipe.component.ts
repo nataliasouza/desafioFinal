@@ -12,4 +12,5 @@ export class EquipeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }
