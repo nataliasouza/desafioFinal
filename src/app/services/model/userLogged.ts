@@ -1,5 +1,4 @@
 export class UserLogged {
-    NameUser: string;
-    role: string;
-    IdProfile: string
+    Email: string;
+    Jti: string
 }

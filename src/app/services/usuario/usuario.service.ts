@@ -11,9 +11,7 @@ export class UsuarioService extends ProviderService{
   constructor( private http: HttpClient ) 
   { 
     super("User");
-
   }
-
 
  // USUARIOS
   getUsuarios() {
@@ -21,9 +19,8 @@ export class UsuarioService extends ProviderService{
     return usuarios;
   }
 
-  getUsuarioById(id: string) {
-    let usuario = this.http.get<Usuario>(`${this.url}/${id}`);
-    return usuario;
+  getUsuarioById(id: number) {
+    return  this.http.get<any>(`${this.url}/${id}`);
   }
 
   postUsuario(usuario: Usuario) {
@@ -34,7 +31,9 @@ export class UsuarioService extends ProviderService{
     return this.http.put<Usuario>(`${this.url}/${id}`, usuario);
   }
 
- 
+ getTimeLine(){
+   return this.http.get<any>(`${this.url}/TimeLine`)
+ }
 
   // getContaByIdCLiente(idCliente: any) {
   //   return this.http.get<Conta[]>(this.API_URL + `/contas?idUsuario=${idCliente}`);
