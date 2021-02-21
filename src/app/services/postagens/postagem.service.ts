@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Postage } from '../model/Postage.Interface';
+import { Postage } from '../model/Postage';
 import { ProviderService } from '../providers/provider.service';
 
 @Injectable({
