@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Postage } from '../model/Postage.Interface';
 import { ProviderService } from '../providers/provider.service';
 
@@ -8,12 +9,11 @@ import { ProviderService } from '../providers/provider.service';
 })
 export class PostagemService extends ProviderService{
 
-  constructor(private http: HttpClient ) 
-  { 
+  constructor(private http: HttpClient )
+  {
     super("Postage");
 
   }
-
 
  // POSTAGENS
 
@@ -25,7 +25,4 @@ export class PostagemService extends ProviderService{
   postPostage(postagem: Postage) {
     return this.http.post<any>(`${this.url}`, postagem);
   }
-
-
- 
 }
