@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfilePostComponent } from './profile-post/profile-post.component';
 import { UsuarioService } from './services/usuario/usuario.service';
 import { PerfilComponent } from './perfil/perfil.component';
+import { CaixaPostagemComponent } from './caixaPostagem/caixa-postagem/caixa-postagem.component';
+import { TimeLineComponent } from './time-line/time-line.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     CadastroComponent,
     ProfilePostComponent,
     EquipeComponent,
-    PerfilComponent
+    PerfilComponent,
+    CaixaPostagemComponent,
+    TimeLineComponent
   ],
   imports: [
     BrowserModule,

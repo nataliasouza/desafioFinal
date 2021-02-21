@@ -19,6 +19,7 @@ export class ProfilePostComponent implements OnInit {
   email: string;
   usuario: string;
   postForm: FormGroup;
+  postagens: any;
 
   constructor(
     private router: Router,
@@ -30,50 +31,31 @@ export class ProfilePostComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregaInfoUsuario();
-    this.inicializaFormPostagem();
-    console.log(this.carregaInfoUsuario())
-
   }
 
   carregaInfoUsuario() {
     this.usuario = this.authenticationService.userInformations.unique_name;
     this.email = this.authenticationService.userInformations.email;
     this.jti = this.authenticationService.userInformations.jti;
-    
+
+    this.getUsuario();
+  }
+
+  getUsuario() {
     this.usuarioService.getUsuarioById(this.authenticationService.userInformations.jti)
-    .subscribe(
-      response => this.onSuccessFoto(response.photo),
-      error => this.onError()
-    )
-  
-  }
-
-  onSuccessFoto(response){
-    this.foto = response;
-    console.log(this.foto);
-  }
-
-  inicializaFormPostagem() {
-    this.postForm = this.fb.group({
-      text: ['', Validators.required],
-      foto: [''],
-    })
-  }
-
-  postar() {  
-    this.postService.postPostage(this.postForm.value)
       .subscribe(
-        response => this.onSuccessNovoPost(),
-        error => this.onError(),
+        response => this.onSuccessFoto(response.photo),
+        error => this.onError(error)
       )
   }
-  onSuccessNovoPost() {
-    this.toastr.success('Sucesso!', 'Post criado com sucesso.');
-    this.router.navigate(['']);
+
+  onSuccessFoto(response) {
+    this.foto = response;
   }
 
-  onError() {
-    this.toastr.error('Erro!', 'Alguma coisa deu errado.');
+   onError(error) {
+    this.toastr.error('Erro!', `Alguma coisa deu errado. ${error}`);
   }
+  
 
 }
