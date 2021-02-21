@@ -30,7 +30,7 @@ public currentUser: Observable<Auth>;
     return this.currentUserSubject.value;
   }
 
-  public get userInformations(): UserLogged {
+  public get userInformations(): any{
     try {
       return jwt_decode(this.currentUserValue.accessToken);
     } catch(Error)
