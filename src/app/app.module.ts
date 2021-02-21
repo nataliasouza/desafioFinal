@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,16 +7,17 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { EquipeComponent } from './equipe/equipe.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt.inter';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
 import { ProfilePostComponent } from './profile-post/profile-post.component';
-import { EquipeComponent } from './equipe/equipe.component';
 import { UsuarioService } from './services/usuario/usuario.service';
-import { JwtInterceptor } from './helpers/jwt.inter';
-import { ErrorInterceptor } from './helpers/error.interceptor';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     LoginComponent,
     CadastroComponent,
     ProfilePostComponent,
-    EquipeComponent
+    EquipeComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

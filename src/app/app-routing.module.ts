@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CadastroComponent } from './cadastro/cadastro.component';
 import { EquipeComponent } from './equipe/equipe.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { PerfilComponent } from './perfil/perfil.component';
 import { ProfilePostComponent } from './profile-post/profile-post.component';
 
 
@@ -21,6 +22,9 @@ const routes: Routes = [ {
 },{
   path: 'profile-post',
   component: ProfilePostComponent,
+},{
+  path: 'perfil',
+  component: PerfilComponent,
 },{
   path: 'equipe',
   component: EquipeComponent,
