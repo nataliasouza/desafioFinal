@@ -1,87 +1,50 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="cadastro">Cadastro de Perfil</a>
-        </li>
-      </ul>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Cadastro</h5>
-      <form [formGroup]="usuarioForm" class="needs-validation" novalidate (onSubmit)="onSubmit()">
-          <div class="col-sm-6">
-            <label for="Name" class="form-label">Nome Completo:</label>
-            <div class="form-group">
-              <input type="text" class="form-control cadastro"
-              id="Name"
-                   placeholder="Nome Completo"
-                   formControlName="name"
-                  [class.is-invalid]="exibeErro('name')">
-          </div>
-          </div>
-          <div class="col-sm-4">
-            <label for="date" class="form-label">Data de Nascimento:</label>
-            <input type="date" class="form-control" id="date" formControlName="birthday">
-          </div>
-          <div class="col-sm-4"><br>
-            <label for="gender" class="form-label">Gênero</label>
-            <select class="form-select custom-select" formControlName="genderId"  [class.is-invalid]="exibeErro('genderId')">
-              <option value="" disabled>Selecione</option>
-              <option  *ngFor="let genero of generos" [ngValue]="genero.id"> {{genero.description}} </option>
-            </select>
-          </div>
-          <div class= "col-sm-6 form-group">
-            <label for="email" class="form-label">Digite seu E-mail:</label>
-            <div class="form-group">
-              <input type="email"
-              id="email"
-              class="form-control cadastro"
-              aria-describedby="emailHelp"
-              placeholder="E-mail"
-              formControlName="email"
-              [class.is-invalid]="exibeErro('email')">
-          </div>
-            </div>
-        <div class="col-sm-6 form-group">
-          <label for="password" class="form-label">Digite sua senha:</label>
-          <div class="form-group">
-            <input type="password"
-            id="password"
-            class="form-control cadastro"
-            placeholder="Senha"
-            formControlName="password"
-            [class.is-invalid]="exibeErro('senha')">
-          </div>
-        </div>
-        <!--Incluimos o confirme senha, verificar se a validação está correta-->
-        <div class="col-sm-6 form-group">
-          <label for="password" class="form-label">Confirme sua senha:</label>
-          <div class="form-group">
-            <input type="password"
-            id="password"
-            class="form-control cadastro"
-            placeholder="Senha"
-            formControlName="password"
-            [class.is-invalid]="exibeErro('senha')">
-          </div>
-        </div>
-    <form [formGroup]="uploadForm" class="needs-validation" novalidate >
+<div class="body">
+  <div class="registration-form">
+    <form [formGroup]="usuarioForm" class="needs-validation" novalidate (onSubmit)="onSubmit()">
+      <div class="form-icon">
+        <img src="https://i.ibb.co/hBktN1q/pp.jpg" alt="pp" width="120">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" id="Name" placeholder="Nome Completo" formControlName="name"
+          [class.is-invalid]="exibeErro('name')">
+      </div>
+      <div class="form-group">
+        <input type="date" class="form-control item" id="date" placeholder="Data de Nascimento"
+          formControlName="birthday">
+      </div>
+      <!-- <div class="form-group"> -->
+      <select class="form-select item custom-select" formControlName="genderId"
+        [class.is-invalid]="exibeErro('genderId')">
+        <option value="" disabled>Selecione</option>
+        <option *ngFor="let genero of generos" [ngValue]="genero.id"> {{genero.description}} </option>
+      </select>
+      <!-- </div> -->
+      <div class="form-group">
+        <input type="email" id="email" class="form-control item" placeholder="E-mail" formControlName="email"
+          [class.is-invalid]="exibeErro('email')">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" class="form-control item" placeholder="Senha" formControlName="password"
+          [class.is-invalid]="exibeErro('senha')">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" class="form-control item" placeholder="Confirme sua senha" 
+          [class.is-invalid]="exibeErro('senha')">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account" (click)="onSubmit()">Confirmar</button>
+        <button type="button" class="btn btn-block item btn-danger" href="#" >Cancelar</button>
+      </div>
+    </form>
+    <div class="social-media">
+      <form [formGroup]="uploadForm" class="needs-validation" novalidate>
         <div class="form-group">
           <label for="formFile"></label>
           <h5>Envie sua foto</h5>
-          <input type="file" class="form-control-file" id="formFile" (change)="onSelectedFile($event)" formControlName="photo">
+          <input type="file" class="form-control-file" id="formFile" (change)="onSelectedFile($event)"
+            formControlName="photo">
         </div>
       </form>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="save-info">
-          <label class="form-check-label" for="save-info">Guarde essas informações para a próxima vez.</label>
-        </div>
-        <hr class="my-4">
-       {{uploadForm.value}}
-      </form>
-      <button type="submit" class="btn btn-primary float-right" (click)="onSubmit()">Salvar</button>
-      <button type="button" href="#" class="btn btn-danger float-right">Cancelar</button>
     </div>
   </div>
 </div>
