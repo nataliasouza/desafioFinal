@@ -14,9 +14,13 @@
     </div>
     <div class="card-body">
       <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> {{post.created}} </div>
+      <P>{{usuario}}</P>
       <p class="card-text">
         {{post.text}}
       </p>
+      <div *ngIf="post.foto != '' ">
+      <img class="foto-postagem" src={{post.foto}} width="500" height="500" alt="">
+      </div>
     </div>
     <div class="card-footer">
       <a (click)="curtir(post.id)" class="card-link"><i class="fa fa-gittip"></i> Curtir</a>
