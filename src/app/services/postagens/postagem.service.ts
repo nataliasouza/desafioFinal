@@ -7,14 +7,13 @@ import { ProviderService } from '../providers/provider.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PostagemService extends ProviderService{
+export class PostagemService extends ProviderService {
 
-  constructor(private http: HttpClient )
-  {
+  constructor(private http: HttpClient) {
     super("Postage");
   }
   
- // POSTAGENS
+  // POSTAGENS
 
   getPostagesById() {
     return this.http.get<any>(`${this.url}`);
@@ -26,8 +25,15 @@ export class PostagemService extends ProviderService{
 
   // LIKES
 
-postLike(id){
-  return this.http.post<any>(`${this.url}/Likes`, id);
-}
+  postLike(id) {
+    return this.http.post<any>(`${this.url}/Likes`, id);
+  }
 
+  postComments(id: number, comment: any) {
+    return this.http.post<any>(`${this.url}/${id}/Comments`, comment);
+  }
+
+  getComments(id: number){
+    return this.http.get<any>(`${this.url}/${id}/Comments`);
+  }
 }

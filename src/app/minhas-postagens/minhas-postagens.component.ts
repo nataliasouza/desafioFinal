@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PostagemService } from '../services/postagens/postagem.service';
+import { AuthenticationService } from '../services/providers/authentication/authentication.service';
+import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-minhas-postagens',
@@ -10,9 +12,15 @@ import { PostagemService } from '../services/postagens/postagem.service';
 export class MinhasPostagensComponent implements OnInit {
 
   postagens: any;
+  foto: string;
+  jti: any;
+  email: string;
+  usuario: string;
 
   constructor(
     private postService: PostagemService,
+    private usuarioService: UsuarioService,
+    private authenticationService: AuthenticationService,
     private toastr: ToastrService
   ) { }
 
@@ -20,6 +28,25 @@ export class MinhasPostagensComponent implements OnInit {
     this.getMinhasPostagens();
   }
 
+  carregaInfoUsuario() {
+    this.usuario = this.authenticationService.userInformations.unique_name;
+    this.email = this.authenticationService.userInformations.email;
+    this.jti = this.authenticationService.userInformations.jti;
+
+    this.getUsuario();
+  }
+
+  getUsuario() {
+    this.usuarioService.getUsuarioById(this.authenticationService.userInformations.jti)
+      .subscribe(
+        response => this.onSuccessFoto(response.photo),
+        error => this.onError(error)
+      )
+  }
+
+  onSuccessFoto(response) {
+    this.foto = response;
+  }
 
   getMinhasPostagens() {
     this.postService.getPostagesById()
@@ -33,8 +60,8 @@ export class MinhasPostagensComponent implements OnInit {
     this.postagens = response;
   }
 
-  curtir(){
-    this.postService.postLike(this.postagens.id)
+  curtir(id){
+    this.postService.postLike(id)
     .subscribe(
       response => response,
       error => this.onError(error)
