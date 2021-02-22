@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Postage } from '../model/Postage';
 import { ProviderService } from '../providers/provider.service';
 
@@ -11,7 +12,7 @@ export class PostagemService extends ProviderService {
   constructor(private http: HttpClient) {
     super("Postage");
   }
-
+  
   // POSTAGENS
 
   getPostagesById() {
@@ -35,5 +36,4 @@ export class PostagemService extends ProviderService {
   getComments(id: number){
     return this.http.get<any>(`${this.url}/${id}/Comments`);
   }
-
 }
