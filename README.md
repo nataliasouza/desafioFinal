@@ -39,3 +39,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 [CSS]()
 [TypeScript]()
 [NodeJS]()
+[Bootstrap](https://getbootstrap.com/)
