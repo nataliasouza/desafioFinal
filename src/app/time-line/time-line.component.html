@@ -7,8 +7,8 @@
             </div>
             <div class="box-body">
                 <p>{{post.post}}</p>
-                <div *ngIf="post.foto != '' ">
-                    <img class="img-responsive pad" src={{post.foto}} alt="Photo">
+               <div *ngIf="post.photoPost != '' ">
+                    <img class="img-responsive pad" src={{post.photoPost}} alt="Photo">
                 </div>
                 <a (click)="curtir(post.id)" class="card-link"><i class="fa fa-gittip"></i> Curtir</a>
                 <span class="pull-right text-muted">{{post.quantityLikes}} - Curtidas</span>
