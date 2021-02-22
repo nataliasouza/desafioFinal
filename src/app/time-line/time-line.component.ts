@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { PostagemService } from '../services/postagens/postagem.service';
 import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
@@ -10,16 +12,19 @@ import { UsuarioService } from '../services/usuario/usuario.service';
 export class TimeLineComponent implements OnInit {
 
  postagens: any;
+ url: string;
 
   constructor(
     private usuarioService: UsuarioService,
-    private toastr: ToastrService
+    private postService: PostagemService,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
-    this.getTimeLine();
+     this.getTimeLine();
   }
 
+   
   getTimeLine() {
     this.usuarioService.getTimeLine()
       .subscribe(
@@ -30,6 +35,14 @@ export class TimeLineComponent implements OnInit {
 
   onSuccesTimeLine(response) {
     this.postagens = response;
+  }
+
+  curtir(id){
+    this.postService.postLike(id)
+    .subscribe(
+      response => response,
+      error => this.onError(error)
+    )
   }
 
   onError(error) {

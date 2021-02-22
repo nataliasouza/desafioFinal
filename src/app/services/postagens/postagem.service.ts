@@ -12,17 +12,22 @@ export class PostagemService extends ProviderService{
   constructor(private http: HttpClient )
   {
     super("Postage");
-
   }
-
+  
  // POSTAGENS
 
-  getPostagesById(id: string) {
-    let postagem = this.http.get<any>(`${this.url}`);
-    return postagem;
+  getPostagesById() {
+    return this.http.get<any>(`${this.url}`);
   }
 
   postPostage(postagem: Postage) {
     return this.http.post<any>(`${this.url}`, postagem);
   }
+
+  // LIKES
+
+postLike(id){
+  return this.http.post<any>(`${this.url}/Likes`, id);
+}
+
 }

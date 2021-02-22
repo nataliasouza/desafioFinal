@@ -20,6 +20,7 @@ import { UsuarioService } from './services/usuario/usuario.service';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CaixaPostagemComponent } from './caixaPostagem/caixa-postagem/caixa-postagem.component';
 import { TimeLineComponent } from './time-line/time-line.component';
+import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TimeLineComponent } from './time-line/time-line.component';
     EquipeComponent,
     PerfilComponent,
     CaixaPostagemComponent,
-    TimeLineComponent
+    TimeLineComponent,
+    MinhasPostagensComponent
   ],
   imports: [
     BrowserModule,

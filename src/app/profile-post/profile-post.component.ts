@@ -22,11 +22,8 @@ export class ProfilePostComponent implements OnInit {
   postagens: any;
 
   constructor(
-    private router: Router,
     private authenticationService: AuthenticationService,
-    private fb: FormBuilder,
     private usuarioService: UsuarioService,
-    private postService: PostagemService,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -56,6 +53,5 @@ export class ProfilePostComponent implements OnInit {
    onError(error) {
     this.toastr.error('Erro!', `Alguma coisa deu errado. ${error}`);
   }
-  
 
 }
