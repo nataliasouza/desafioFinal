@@ -7,6 +7,7 @@
                 </div>
                 <div class="ml-2">
                     <div class="h5 m-0">{{post.nameUser}}</div>
+
                 </div>
             </div>
         </div>
@@ -19,7 +20,7 @@
     </div>
     <div class="card-footer">
         {{post.quantityLikes}}
-        <a class="card-link"><i class="fa fa-gittip"></i> Curtir</a>
+        <a (click)="curtir(post.idPost)" class="card-link"><i class="fa fa-gittip"></i> Curtir</a>
         <a class="card-link"><i class="fa fa-comment"></i> Commentar</a>
     </div>
     <div class="card" *ngFor="let comment of post.comments">
