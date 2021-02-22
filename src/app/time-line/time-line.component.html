@@ -1,46 +1,40 @@
-<div class="card gedf-card" *ngFor="let post of postagens">
-    <div class="card-header">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="mr-2">
-                    <img class="rounded-circle" width="45" src={{post.photoUser}} alt="">
+<div class="col-12" style="padding: 0;" *ngFor="let post of postagens">
+    <div class="box box-widget" >
+        <div class="box-header with-border" >
+            <div class="user-block"> <img class="img-circle" src={{post.photoUser}} alt="User Image"> <span
+                    class="username"><a href="/perfil" data-abc="true">{{post.nameUser}}</a></span>
+                <span class="description">Public - {{post.postCreatedAt}}</span>
+            </div>
+            <div class="box-body">
+                <p>{{post.post}}</p>
+                <div *ngIf="post.foto != '' ">
+                    <img class="img-responsive pad" src={{post.foto}} alt="Photo">
                 </div>
-                <div class="ml-2">
-                    <div class="h5 m-0">{{post.nameUser}}</div>
+                <a (click)="curtir(post.id)" class="card-link"><i class="fa fa-gittip"></i> Curtir</a>
+                <span class="pull-right text-muted">{{post.quantityLikes}} - Curtidas</span>
+            </div>
+            <div class="box-footer box-comments">
+                <div class="box-comment" *ngFor="let comment of post.comments">
+                    <img class="img-circle img-sm" src={{comment.photoUser}} alt="User Image">
+                    <div class="comment-text"> 
+                        <span class="username"> {{comment.nameUser}} 
+                            <span class="text-muted pull-right">{{comment.commentCreatedAt}} </span>
+                         </span>
+                        {{comment.comment}} 
+                    </div>
+                </div>
 
+                <div class="box-footer">
+                    <form [formGroup]="commentForm" method="post" onsubmit="comentar(post.idPost)">
+                        <img class="img-responsive img-circle img-sm" src={{foto}} alt="Alt Text">
+                        <div class="img-push">
+                            <input type="text" class="form-control input-sm" placeholder="Digite seu comentário"
+                                formControlName="text">
+                        </div>
+                        <button type="submit" class="btn btn-primmary xs">Comentar</button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> {{post.postCreatedAt}} </div>
-        <p class="card-text">
-            {{post.post}}
-        </p>
-    </div>
-    <div class="card-footer">
-        {{post.quantityLikes}}
-        <a (click)="curtir(post.idPost)" class="card-link"><i class="fa fa-gittip"></i> Curtir</a>
-        <a class="card-link"><i class="fa fa-comment"></i> Commentar</a>
-    </div>
-    <div class="card" *ngFor="let comment of post.comments">
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="mr-2">
-                        <img class="rounded-circle" width="30" src={{comment.photoUser}} alt="">
-                    </div>
-                    <div class="ml-2">
-                        <div class="h7 m-0">{{comment.nameUser}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> {{comment.commentCreatedAt}}</div>
-            <p class="card-text">
-                {{comment.comment}}
-            </p>
         </div>
     </div>
 </div>
