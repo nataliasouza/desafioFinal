@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Postage } from '../model/Postage';
 import { ProviderService } from '../providers/provider.service';
 
@@ -8,8 +9,8 @@ import { ProviderService } from '../providers/provider.service';
 })
 export class PostagemService extends ProviderService{
 
-  constructor(private http: HttpClient ) 
-  { 
+  constructor(private http: HttpClient )
+  {
     super("Postage");
   }
   
@@ -29,6 +30,4 @@ postLike(id){
   return this.http.post<any>(`${this.url}/Likes`, id);
 }
 
-
- 
 }
