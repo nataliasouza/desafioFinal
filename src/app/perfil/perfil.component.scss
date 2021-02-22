@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  padding: 15px;
+  padding: 29px;
   background-color:#F3F3F3;
 }
 
@@ -33,7 +33,7 @@ button {
   width: 100%;
   position: relative;
   background: #FFF;
-  border: 1px solid #202020;
+  border-radius: 10px;
   padding-bottom: 5px;
   margin-bottom: 20px;
 }
@@ -45,6 +45,10 @@ button {
   overflow: hidden;
   text-align: center;
   border: 5px solid #FFF;
+}
+
+#userNome {
+  padding: 30px;
 }
 
 .profile .user {
