@@ -32,8 +32,13 @@ button {
   background-color: #062055;
  }
 
+ .perfilNomeClick {
+  text-decoration: none;
+}
+
 /**Reset Bootstrap*/
 .dropdown-toggle::after {
   content: none;
   display: none;
 }
+
