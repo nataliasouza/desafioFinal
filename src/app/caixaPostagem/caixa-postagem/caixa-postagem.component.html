@@ -36,7 +36,9 @@
           <button type="submit" class="btn btn-primary">Compartilhar</button>
         </div>
         <div class="btn-group">
-          <button type="submit" class="btn btn-primary fa fa-camera"></button>
+          <label class="fa fa-camera" for="file">
+          </label>
+          <input type="file" id="file" class="btn-3" (change)="onSelectedFile($event.target.files)" >
         </div>
       </div>
     </div>

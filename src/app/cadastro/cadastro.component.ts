@@ -17,8 +17,9 @@ export class CadastroComponent implements OnInit {
   generos: Genero[];
   usuarioForm: FormGroup;
   uploadForm: FormGroup;
-  public fileToUpload: File = null;
+  public selectedFile: File = null;
   public files: Array<any> = new Array<any>();
+  url: string = '';
 
   constructor(
     private router: Router,
@@ -39,21 +40,22 @@ export class CadastroComponent implements OnInit {
     this.usuarioForm = this.fb.group({
       name: ['', Validators.required],
       genderId: ['', Validators.required],
-      photo: ['', Validators.required],
+      photo: [this.url, Validators.required],
       birthday: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     })
 
     this.uploadForm = this.fb.group({
-      photo: ['', Validators.required]})
+      photo: ['', Validators.required]
+    })
   }
 
   carregarGeneros() {
     this.generoService.getGeneros()
       .subscribe(
         response => this.onSuccess(response),
-        error => this.onError()
+        error => this.onError(error)
       );
   }
 
@@ -61,19 +63,35 @@ export class CadastroComponent implements OnInit {
     this.generos = response;
   }
 
-  onSelectedFile(files: FileList){
-      const file = this.uploadService
-      .postPhoto(this.uploadForm.value)
-      .subscribe(
-        response => response.url,
-        error => this.onError(),
-      )
-      this.usuarioForm.get('photo').setValue(file);
-      console.log(file);
-    }
-  
 
-  
+  onSelectedFile(files: FileList) {
+    if (files.length === 0)
+      return;
+
+    this.selectedFile = files.item(0);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile);
+
+    reader.onload = function(event) {
+      var urlResult = reader.result;
+      var url = event.target.result;
+      console.log(url + " Url " + urlResult);
+    };
+
+    this.files.push({ data: this.selectedFile, fileName: this.selectedFile.name });
+
+    this.uploadService.postPhoto(this.files[0])
+      .subscribe(
+        (res) => {
+          this.url = res.url,
+            this.usuarioForm.controls.photo.setValue(this.url)
+        },
+        (err) => {
+          this.onError(err);
+        });
+  }
+
   validateAllFormFiels(form: FormGroup) {
     Object.keys(form.controls).forEach(field => {
       const control = form.get(field);
@@ -94,20 +112,20 @@ export class CadastroComponent implements OnInit {
   }
 
 
-  cadastro() {  
+  cadastro() {
     this.usuarioService.postUsuario(this.usuarioForm.value)
       .subscribe(
         response => this.onSuccessNovoCliente(),
-        error => this.onError(),
+        error => this.onError(error),
       )
   }
   onSuccessNovoCliente() {
     this.toastr.success('Sucesso!', 'Usuário criado com sucesso.');
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
-  onError() {
-    this.toastr.error('Erro!', 'Alguma coisa deu errado.');
+  onError(error) {
+    this.toastr.error('Erro!', `Alguma coisa deu errado. ${error} `);
   }
 
   exibeErro(nomeControle: string) {

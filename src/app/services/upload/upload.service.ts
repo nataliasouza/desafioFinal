@@ -14,11 +14,12 @@ export class UploadService extends ProviderService {
     super("Upload");
    }
 
-   postPhoto(file: any){
-    const contentFile = new FormData();
-    // contentFile.append("file", uploadedFile.data, uploadedFile.fileName ? uploadedFile.fileName : "uploadedFile");
+   postPhoto(uploadFile: any){
+    const formData = new FormData();
 
-    return this.http.post<Photo>(`${this.url}`, file);
+    formData.append('file', uploadFile.data, uploadFile.fileName ? uploadFile.fileName : "uploadFile");
+
+    return this.http.post<any>(`${this.url}`, formData);
   }
 
 }
