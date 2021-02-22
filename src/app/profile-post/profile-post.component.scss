@@ -23,6 +23,15 @@ body {
   }
 }
 
+button {
+  background-color: #003499;
+ }
+
+ button:hover {
+  background-color: #062055;
+ }
+
+
 /**Reset Bootstrap*/
 .dropdown-toggle::after {
   content: none;
