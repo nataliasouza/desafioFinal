@@ -5,6 +5,72 @@ button {
  button:hover {
   background-color: #062055;
  }
+
+ [type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+[type="file"] + label {
+  background: #062055;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Rubik', sans-serif;
+  font-size: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+  
+  &:hover {
+    background-color: darken(#003499, 10%);
+  }
+  &.btn-3 {
+    background-color: #003499;
+    border-radius: 0;
+    overflow: hidden;
+    
+    span {
+      display: inline-block;
+      height: 100%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+    
+    &::before {
+      color: #fff;
+      content: "\f382";
+      font-family: "Font Awesome 5 Pro";
+      font-size: 130%;
+      height: 100%;
+      left: 0;
+      line-height: 2.6;
+      position: absolute;
+      top: -180%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: darken(#003499, 30%);
+      
+      span {
+        transform: translateY(300%);
+      }
+        
+      &::before {
+        top: 0;
+      }
+    }
+  }
+}
 #card {
    margin-bottom: 20px;
  }
