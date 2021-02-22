@@ -1,27 +1,42 @@
-# NovaAplicacao
+SevenDev
+Projeto Rede Social – Gama Academy
+Projeto final apresentado no curso We Can Code Academy. Gama Academy. Fevereiro de 2020.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+Objetivo - Construir uma rede social. A rede deve possuir:
 
-## Development server
+Um cadastro do usuário, com nome, data de nascimento, gênero e foto;
+Criação de uma página de perfil para o usuário onde apareçam suas principais informações, que tenha uma foto de capa, uma linha do tempo com suas postagens e onde ele possa realizar novas postagens;
+Realizar novas postagens, permitindo que o usuário acrescente textos, fotos e/ou vídeos em suas linhas do tempo. As postagens devem ter funcionalidade para que os amigos do usuário possam curtir e comentar;
+Álbum de fotos, que agrupe todas as fotos postadas pelo usuário em sua linha do tempo;
+Linha do tempo dos amigos: uma página que reúna os posts dos amigos, agrupados em ordem cronológica.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+###Título e Descrição
 
-## Code scaffolding
+####SevenDev – A rede social das mulheres que codam!
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Uma rede social voltada para mulheres desenvolvedoras. Um espaço de troca, acolhimento, compartilhamento e principalmente aprendizado entre as mulheres da tecnologia.
 
-## Build
+####Status do projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Em construção.
 
-## Running unit tests
+####Funcionalidades 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[X] Cadastro de usuário; 
+[X] Página de Perfil; 
+[X] Postagens; 
+[X] Álbum de fotos do usuário;
+[X] Adicionar amigos; 
+[X] Comentar e curtir postagens dos amigos.
 
-## Running end-to-end tests
+####🛠Tecnologias
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+As seguintes ferramentas foram usadas na construção do projeto:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[Visual Studio Code](https://code.visualstudio.com/download)
+[Angular](https://angular.io/)
+[HTML]()
+[CSS]()
+[TypeScript]()
+[NodeJS]()
+[Bootstrap](https://getbootstrap.com/)

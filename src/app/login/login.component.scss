@@ -15,6 +15,7 @@ body {
   max-width: 525px;
   min-height: 670px;
   position: relative;
+  border-radius: 30px;
   background: url(devLogin.jpg) no-repeat center;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -26,6 +27,7 @@ body {
   position: absolute;
   padding: 90px 70px 50px 70px;
   background: rgba(53, 51, 50, 0.856);
+  border-radius: 30px;
 }
 
 .login-html .sign-in-htm,
