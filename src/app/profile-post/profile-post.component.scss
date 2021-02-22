@@ -2,7 +2,8 @@ body {
   background-color: #eeeeee;
 }
 .container-fluid {
-  padding: 50px;
+  padding: 20px;
+  padding-bottom: 50px;
 }
 
 .h7 {
@@ -30,7 +31,6 @@ button {
  button:hover {
   background-color: #062055;
  }
-
 
 /**Reset Bootstrap*/
 .dropdown-toggle::after {
